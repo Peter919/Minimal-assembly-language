@@ -1,0 +1,527 @@
+# depslib dependency file v1.0
+1655464400 source:d:\dropbox\_petercpp\minimal assembly language\main.c
+	<stdio.h>
+	<string.h>
+	<conio.h>
+	"log.h"
+	"os.h"
+	"file_handling.h"
+	"compiler.h"
+	"run.h"
+
+1654957913 source:d:\dropbox\_petercpp\minimal assembly language\log.c
+	<stdio.h>
+	<stdarg.h>
+	"log.h"
+	"settings.h"
+
+1654965623 d:\dropbox\_petercpp\minimal assembly language\log.h
+
+1653232240 source:d:\dropbox\_petercpp\minimal assembly language\textfilehandling.c
+	"textfilehandling.h"
+	<stdio.h>
+	<stdlib.h>
+	<dirent.h>
+	"log.h"
+	"list.h"
+	"os.h"
+
+1653236633 d:\dropbox\_petercpp\minimal assembly language\os.h
+
+1655568750 d:\dropbox\_petercpp\minimal assembly language\settings.h
+	"log.h"
+
+1655397388 source:d:\dropbox\_petercpp\minimal assembly language\list.c
+	<stdio.h>
+	<stdlib.h>
+	"list.h"
+
+1654965606 d:\dropbox\_petercpp\minimal assembly language\list.h
+	"log.h"
+
+1653232236 d:\dropbox\_petercpp\minimal assembly language\textfilehandling.h
+
+1653546607 source:d:\dropbox\_petercpp\minimal assembly language\filehandling.c
+	"filehandling.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<dirent.h>
+	"log.h"
+	"basic_logger_functions.h"
+	"list.h"
+	"os.h"
+
+1653546567 d:\dropbox\_petercpp\minimal assembly language\filehandling.h
+	"list.h"
+
+1655127112 source:d:\dropbox\_petercpp\minimal assembly language\basic_logger_functions.c
+	"log.h"
+
+1653232676 d:\dropbox\_petercpp\minimal assembly language\basic_logger_functions.h
+	"log.h"
+
+1653236639 source:d:\dropbox\_petercpp\minimal assembly language\test.c
+
+1655041365 source:d:\dropbox\_petercpp\minimal assembly language\token.c
+	"token.h"
+	<stdlib.h>
+	"settings.h"
+	"log.h"
+
+1654709108 d:\dropbox\_petercpp\minimal assembly language\token.h
+	"log.h"
+
+1655724447 source:d:\dropbox\_petercpp\minimal assembly language\settings.c
+	"log.h"
+
+1654957981 source:d:\dropbox\_petercpp\minimal assembly language\lexer.c
+	<stdlib.h>
+	"settings.h"
+	"masm_file.h"
+	"token.h"
+	"token_recognition_functions.h"
+	"token_scanning_functions.h"
+
+1654109848 source:d:\dropbox\_petercpp\minimal assembly language\token_scanning_functions.c
+	<stdlib.h>
+	<string.h>
+	"settings.h"
+	"token.h"
+	"token_recognition_functions.h"
+
+1654958071 source:d:\dropbox\_petercpp\minimal assembly language\token_recognition_functions.c
+	<string.h>
+	"settings.h"
+
+1654109835 d:\dropbox\_petercpp\minimal assembly language\token_recognition_functions.h
+
+1653455711 d:\dropbox\_petercpp\minimal assembly language\token_scanning_functions.h
+
+1653974681 source:d:\dropbox\_petercpp\minimal assembly language\masmfile.c
+	"masmfile.h"
+	<stdlib.h>
+	"log.h"
+	"token.h"
+
+1653667680 source:d:\dropbox\_petercpp\minimal assembly language\masmfile_list.c
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"settings.h"
+	"filehandling.h"
+	"masmfile.h"
+
+1653628931 d:\dropbox\_petercpp\minimal assembly language\masmfile.h
+	"list.h"
+
+1653629662 d:\dropbox\_petercpp\minimal assembly language\masmfile_list.h
+	"list.h"
+
+1655651120 source:d:\dropbox\_petercpp\minimal assembly language\masm_file_list.c
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"settings.h"
+	"file_handling.h"
+	"masm_file.h"
+	"lower_masm_file.h"
+	"token.h"
+	"lexer.h"
+	"parser.h"
+	"evaluate_imports.h"
+	"move_main_label_to_beginning.h"
+	"repeated_label_names.h"
+
+1655299307 source:d:\dropbox\_petercpp\minimal assembly language\compiler.c
+	"log.h"
+	"file_handling.h"
+	"settings.h"
+	"masm_file.h"
+	"masm_file_list.h"
+	"translate_masm_file_list.h"
+	"get_executable_file_path.h"
+
+1654062257 d:\dropbox\_petercpp\minimal assembly language\masm_file_list.h
+	"list.h"
+
+1653668024 d:\dropbox\_petercpp\minimal assembly language\compiler.h
+
+1654428100 d:\dropbox\_petercpp\minimal assembly language\lexer.h
+	"masm_file.h"
+
+1655711944 source:d:\dropbox\_petercpp\minimal assembly language\parser.c
+	"list.h"
+	"masm_file.h"
+	"token.h"
+	"syntax_analysis.h"
+	"evaluate_imports.h"
+	"declarations_to_id_strings.h"
+	"identifiers_to_ids.h"
+
+1654944658 d:\dropbox\_petercpp\minimal assembly language\parser.h
+	"masm_file.h"
+
+1654101113 d:\dropbox\_petercpp\minimal assembly language\syntax_analysis.h
+
+1655041120 source:d:\dropbox\_petercpp\minimal assembly language\syntax_analysis.c
+	"masm_file.h"
+	"token.h"
+
+1655649543 source:d:\dropbox\_petercpp\minimal assembly language\identifiers_to_ids.c
+	<stdlib.h>
+	<string.h>
+	"log.h"
+	"list.h"
+	"masm_file.h"
+	"id_string.h"
+	"token.h"
+
+1654878984 d:\dropbox\_petercpp\minimal assembly language\identifiers_to_ids.h
+	"list.h"
+	"masm_file.h"
+
+1654360429 source:d:\dropbox\_petercpp\minimal assembly language\local_identifiers_to_ids.h
+	"masmfile.h"
+
+1654410858 d:\dropbox\_petercpp\minimal assembly language\idstring.h
+	"log.h"
+	"list.h"
+	"masmfile.h"
+	"token.h"
+
+1654410928 source:d:\dropbox\_petercpp\minimal assembly language\idstring.c
+	"idstring.h"
+	<stdlib.h>
+	<string.h>
+	"log.h"
+	"token.h"
+
+1654411030 source:d:\dropbox\_petercpp\minimal assembly language\local_identifiers_to_ids.c
+	<stdlib.h>
+	<string.h>
+	"token.h"
+	"idstring.h"
+
+1654409687 d:\dropbox\_petercpp\minimal assembly language\local_identifiers_to_ids.h
+	"masmfile.h"
+
+1654410406 source:d:\dropbox\_petercpp\minimal assembly language\labels_to_ids.c
+	<stdlib.h>
+	"token.h"
+	"masmfile.h"
+
+1654411013 source:d:\dropbox\_petercpp\minimal assembly language\global_identifiers_to_ids.c
+	<string.h>
+	"log.h"
+	"settings.h"
+	"list.h"
+	"masmfile.h"
+	"idstring.h"
+
+1654427656 d:\dropbox\_petercpp\minimal assembly language\get_label_names.h
+	"masmfile.h"
+
+1655297116 source:d:\dropbox\_petercpp\minimal assembly language\file_handling.c
+	"file_handling.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<dirent.h>
+	"log.h"
+	"basic_logger_functions.h"
+	"list.h"
+	"os.h"
+	"buffer.h"
+
+1655297102 d:\dropbox\_petercpp\minimal assembly language\file_handling.h
+	"list.h"
+	"buffer.h"
+
+1654752494 d:\dropbox\_petercpp\minimal assembly language\masm_file.h
+	"list.h"
+
+1655049904 source:d:\dropbox\_petercpp\minimal assembly language\masm_file.c
+	"masm_file.h"
+	<stdlib.h>
+	"log.h"
+	"token.h"
+	"imported_label.h"
+	"id_string.h"
+
+1654958357 source:d:\dropbox\_petercpp\minimal assembly language\imported_label.c
+	"imported_label.h"
+	<stdlib.h>
+	"log.h"
+
+1654609255 d:\dropbox\_petercpp\minimal assembly language\imported_label.h
+	"log.h"
+
+1654514004 source:d:\dropbox\_petercpp\minimal assembly language\get_labels.c
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"masm_file.h"
+	"token.h"
+	"imported_label.h"
+
+1654495632 d:\dropbox\_petercpp\minimal assembly language\get_labels.h
+	"list.h"
+	"masm_file.h"
+
+1655651081 source:d:\dropbox\_petercpp\minimal assembly language\evaluate_imports.c
+	<stdlib.h>
+	<string.h>
+	"settings.h"
+	"list.h"
+	"masm_file.h"
+	"token.h"
+	"imported_label.h"
+
+1654957106 d:\dropbox\_petercpp\minimal assembly language\evaluate_imports.h
+	"list.h"
+	"masm_file.h"
+
+1654666577 source:d:\dropbox\_petercpp\minimal assembly language\get_globals.c
+	<stdlib.h>
+	<string.h>
+	"settings.h"
+	"list.h"
+	"masm_file.h"
+	"token.h"
+	"id_string.h"
+
+1654958237 source:d:\dropbox\_petercpp\minimal assembly language\id_string.c
+	"id_string.h"
+	<stdlib.h>
+	"log.h"
+
+1654965784 d:\dropbox\_petercpp\minimal assembly language\id_string.h
+	"log.h"
+
+1654627286 source:d:\dropbox\_petercpp\minimal assembly language\id_string.h
+	"log.h"
+
+1654779705 source:d:\dropbox\_petercpp\minimal assembly language\get_locals.c
+
+1654779678 source:d:\dropbox\_petercpp\minimal assembly language\get_global_file_index.c
+
+1654709773 d:\dropbox\_petercpp\minimal assembly language\get_locals.h
+	"list.h"
+	"masm_file.h"
+
+1654868058 source:d:\dropbox\_petercpp\minimal assembly language\identifiers_to_id_strings.c
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"token.h"
+	"id_string.h"
+
+1654867182 d:\dropbox\_petercpp\minimal assembly language\identifiers_to_id_strings.h
+	"list.h"
+
+1654869580 d:\dropbox\_petercpp\minimal assembly language\declarations_to_id_strings.h
+	"list.h"
+
+1655711519 source:d:\dropbox\_petercpp\minimal assembly language\declarations_to_id_strings.c
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"settings.h"
+	"masm_file.h"
+	"token.h"
+	"id_string.h"
+
+1655041473 source:d:\dropbox\_petercpp\minimal assembly language\move_main_label_to_beginning.c
+	<string.h>
+	"log.h"
+	"list.h"
+	"settings.h"
+	"masm_file.h"
+	"token.h"
+
+1655039968 source:d:\dropbox\_petercpp\minimal assembly language\lower_masm_file.c
+	<string.h>
+	"masm_file.h"
+
+1655039984 d:\dropbox\_petercpp\minimal assembly language\lower_masm_file.h
+	"masm_file.h"
+
+1655039759 d:\dropbox\_petercpp\minimal assembly language\move_main_label_to_beginning.h
+
+1655397378 source:d:\dropbox\_petercpp\minimal assembly language\translate_masm_file_list.c
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"buffer.h"
+	"translate_masm_file.h"
+
+1655126252 source:d:\dropbox\_petercpp\minimal assembly language\repeated_label_names.c
+	<string.h>
+	"log.h"
+	"list.h"
+	"masm_file.h"
+	"token.h"
+
+1655098698 d:\dropbox\_petercpp\minimal assembly language\repeated_label_names.h
+
+1655294209 d:\dropbox\_petercpp\minimal assembly language\buffer.h
+	"log.h"
+
+1655294204 source:d:\dropbox\_petercpp\minimal assembly language\buffer.c
+	"buffer.h"
+	<stdlib.h>
+	"log.h"
+	"settings.h"
+
+1655225799 source:d:\dropbox\_petercpp\minimal assembly language\masm_file_to_buffer.c
+	<stdlib.h>
+	"buffer.h"
+	"list.h"
+	"masm_file.h"
+	"token.h"
+	"imported_label.h"
+
+1655212001 d:\dropbox\_petercpp\minimal assembly language\masm_file_to_buffer.h
+	"list.h"
+	"buffer.h"
+
+1655314839 source:d:\dropbox\_petercpp\minimal assembly language\translate_labels.c
+	"list.h"
+	"token.h"
+
+1655296540 source:d:\dropbox\_petercpp\minimal assembly language\translate_masm_file.c
+	<stdlib.h>
+	"list.h"
+	"buffer.h"
+	"masm_file.h"
+	"token.h"
+	"imported_label.h"
+	"translate_labels.h"
+
+1655272775 d:\dropbox\_petercpp\minimal assembly language\translate_labels.h
+	"list.h"
+
+1655294508 d:\dropbox\_petercpp\minimal assembly language\translate_masm_file.h
+	"buffer.h"
+	"masm_file.h"
+
+1655297026 source:d:\dropbox\_petercpp\minimal assembly language\get_executable_file_name.c
+	<stdlib.h>
+	<string.h>
+	"settings.h"
+
+1655272285 d:\dropbox\_petercpp\minimal assembly language\translate_masm_file_list.h
+	"list.h"
+	"buffer.h"
+
+1655295982 d:\dropbox\_petercpp\minimal assembly language\get_executable_file_name.h
+
+1655297126 source:d:\dropbox\_petercpp\minimal assembly language\get_executable_file_path.c
+	<stdlib.h>
+	<string.h>
+	"settings.h"
+
+1655297131 d:\dropbox\_petercpp\minimal assembly language\get_executable_file_path.h
+
+1655359279 d:\dropbox\_petercpp\minimal assembly language\run.h
+
+1655725721 source:d:\dropbox\_petercpp\minimal assembly language\run.c
+	"list.h"
+	"file_handling.h"
+	"mexe_file_part.h"
+	"get_executable_file_path.h"
+	"buffer_to_mexe_file_part_list.h"
+	"set_mexe_file_part_imports.h"
+	"initialize_symbol_tables.h"
+	"execute_main.h"
+
+1655725679 source:d:\dropbox\_petercpp\minimal assembly language\print_out.c
+	<stdlib.h>
+	<time.h>
+	"log.h"
+	"os.h"
+
+1655481216 d:\dropbox\_petercpp\minimal assembly language\print_out.h
+	<time.h>
+
+1655397412 source:d:\dropbox\_petercpp\minimal assembly language\buffer_to_exetuable_file_list.c
+	"list.h"
+	"buffer.h"
+
+1655725454 source:d:\dropbox\_petercpp\minimal assembly language\get_mexe_file_part.c
+	<stdlib.h>
+	<string.h>
+	"mexe_file_part.h"
+
+1655725585 d:\dropbox\_petercpp\minimal assembly language\mexe_file_part.h
+	"log.h"
+
+1655724867 source:d:\dropbox\_petercpp\minimal assembly language\buffer_to_mexe_file_part_list.c
+	"list.h"
+	"buffer.h"
+	"get_mexe_file_part.h"
+	"log.h"
+
+1655532850 d:\dropbox\_petercpp\minimal assembly language\get_mexe_file_part.h
+	"mexe_file_part.h"
+
+1655398807 d:\dropbox\_petercpp\minimal assembly language\buffer_to_mexe_file_part_list.h
+	"list.h"
+	"buffer.h"
+
+1655649952 source:d:\dropbox\_petercpp\minimal assembly language\set_imports.c
+	"list.h"
+	"buffer.h"
+	"mexe_file_part.h"
+	"imported_label.h"
+	"get_mexe_file_part.h"
+
+1655725550 source:d:\dropbox\_petercpp\minimal assembly language\mexe_file_part.c
+	<stdlib.h>
+	"mexe_file_part.h"
+	"log.h"
+	"settings.h"
+
+1655478462 d:\dropbox\_petercpp\minimal assembly language\set_imports.h
+	"list.h"
+	"buffer.h"
+
+1655481204 source:d:\dropbox\_petercpp\minimal assembly language\execute_command.c
+	<stdlib.h>
+	<time.h>
+	"mexe_file_part.h"
+	"print_out.h"
+
+1655725233 source:d:\dropbox\_petercpp\minimal assembly language\execute_main.c
+	<stdlib.h>
+	<time.h>
+	"settings.h"
+	"mexe_file_part.h"
+	"print_out.h"
+
+1655725521 source:d:\dropbox\_petercpp\minimal assembly language\initialize_symbol_tables.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"list.h"
+	"mexe_file_part.h"
+
+1655487112 d:\dropbox\_petercpp\minimal assembly language\initialize_symbol_tables.h
+	"list.h"
+	"mexe_file_part.h"
+
+1655481457 d:\dropbox\_petercpp\minimal assembly language\execute_main.h
+	"mexe_file_part.h"
+
+1655478462 d:\dropbox\_petercpp\minimal assembly language\set_mexe_file_part_imports.h
+	"list.h"
+	"buffer.h"
+
+1655725799 source:d:\dropbox\_petercpp\minimal assembly language\set_mexe_file_part_imports.c
+	"list.h"
+	"buffer.h"
+	"mexe_file_part.h"
+	"imported_label.h"
+	"get_mexe_file_part.h"
+
