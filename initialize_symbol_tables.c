@@ -22,7 +22,7 @@ byte_t ** initialize_global_symbol_table(struct List * mexe_file_parts)
 {
         byte_t ** global_symbol_table = malloc(SYMBOL_TABLE_BYTE_SIZE);
         char * input = malloc(100000);
-        scanf("%s", input);
+        gets(input);
         global_symbol_table[IN] = malloc(strlen(input) + 1);
         strcpy((char *) global_symbol_table[IN], input);
         free(input);
