@@ -15,7 +15,7 @@ static struct IdString * create_id_string(unsigned char id, char * str)
 {
         struct IdString * id_string = malloc(sizeof(struct IdString));
         id_string->id = id;
-        id_string->str = malloc(strlen(str));
+        id_string->str = malloc(strlen(str) + 1);
         strcpy(id_string->str, str);
         return id_string;
 }
