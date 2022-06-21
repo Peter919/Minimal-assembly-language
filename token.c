@@ -76,6 +76,16 @@ void log_token(enum e_LogLevel log_level, void * token)
 void free_token(void * token)
 {
         struct Token * tokptr = (struct Token *) token;
-        free(tokptr->value);
+
+        switch (tokptr->type) {
+        case TOK_IDENTIFIER:
+        case TOK_BUILTIN:
+        case TOK_INSTRUCTION:
+                        free(tokptr->value);
+                        break;
+        default:
+                break;
+        }
+
         free(tokptr);
 }
