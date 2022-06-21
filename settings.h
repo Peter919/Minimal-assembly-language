@@ -17,4 +17,5 @@ extern char * g_label_keyword;
 extern char * g_identifier_primary_symbols;
 extern char * g_identifier_secondary_symbols;
 
-extern const float g_print_delay_seconds;
+extern const float g_seconds_between_printings;
+extern const float g_pause_seconds_after_print;
