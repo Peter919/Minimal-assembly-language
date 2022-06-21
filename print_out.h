@@ -1,4 +1,4 @@
 #pragma once
-#include <time.h>
+#include "mexe_file_part.h"
 
-void print_out(void * out, clock_t delay);
+void print_out(byte_t * out);
