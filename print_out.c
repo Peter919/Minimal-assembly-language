@@ -8,6 +8,7 @@
 #include "log.h"
 #include "settings.h"
 #include "os.h"
+#include "mexe_file_part.h"
 
 #if OPERATING_SYSTEM == OS_WINDOWS
 #include <windows.h>
@@ -32,7 +33,7 @@ static void clear_screen(void)
 
 #define b "BLINK"
 
-void print_out(void * out)
+void print_out(byte_t * out)
 {
         // little optimization so it doesn't print
         // out if there's nothing to print
