@@ -83,7 +83,7 @@ static inline void _rotate(byte_t ** vpt, byte_t ** arg)
 static void execute_command(byte_t ** global_symbol_table, byte_t ** symbol_tables, unsigned int symbol_table_index)
 {
         for (;;) {
-                print_out(global_symbol_table[OUT], g_print_delay_seconds * CLOCKS_PER_SEC);
+                print_out(global_symbol_table[OUT]);
 
                 // instructions are first 3 bits of instructions,
                 // then 1 bit that is 0 for global and 1 for local
