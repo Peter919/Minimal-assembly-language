@@ -12,15 +12,13 @@ static void free_node(struct Node * node, void (*free_value)(void *))
 
 static struct Node * list_index_as_node(struct List * list, unsigned int index)
 {
-        if (index < 0 || index >= list->length)
-        {
+        if (index < 0 || index >= list->length) {
                 return 0;
         }
 
         struct Node * index_node = list->start;
 
-        for (int i = 0; i < index; i++)
-        {
+        for (int i = 0; i < index; i++) {
                 index_node = index_node->next;
         }
 
@@ -38,12 +36,10 @@ void list_append(struct List * list, void * value)
         node->value = value;
         node->next = 0;
 
-        if (list->length == 0)
-        {
+        if (list->length == 0) {
                 list->start = node;
         }
-        else
-        {
+        else {
                 list->end->next = node;
         }
 
@@ -53,12 +49,10 @@ void list_append(struct List * list, void * value)
 
 char list_insert(struct List * list, unsigned int index, void * value)
 {
-        if (index > list->length)
-        {
+        if (index > list->length) {
                 return 0;
         }
-        if (index == list->length)
-        {
+        if (index == list->length) {
                 list_append(list, value);
                 return 1;
         }
@@ -67,12 +61,10 @@ char list_insert(struct List * list, unsigned int index, void * value)
         node->value = value;
         node->next = list_index_as_node(list, index);
 
-        if (index == 0)
-        {
+        if (index == 0) {
                 list->start = node;
         }
-        else
-        {
+        else {
                 list_index_as_node(list, index - 1)->next = node;
         }
 
@@ -92,13 +84,11 @@ char list_insert_after_node(struct Node * node, void * value)
 
 char list_pop(struct List * list, unsigned int index, void (* free_value)(void *))
 {
-        if (index >= list->length)
-        {
+        if (index >= list->length) {
                 return 0;
         }
 
-        if (list->length == 1)
-        {
+        if (list->length == 1) {
                 free_node(list->start, free_value);
                 *list = (struct List) {0, 0, 0};
                 return 1;
@@ -106,21 +96,18 @@ char list_pop(struct List * list, unsigned int index, void (* free_value)(void *
 
         struct Node * index_node;
 
-        if (index == 0)
-        {
+        if (index == 0) {
                 index_node = list->start;
                 list->start = index_node->next;
                 free_node(index_node, free_value);
-        }
-        else if (index == list->length - 1)
-        {
+
+        } else if (index == list->length - 1) {
                 index_node = list_index_as_node(list, list->length - 2);
                 list->end = index_node;
                 free_node(index_node->next, free_value);
                 index_node->next = 0;
-        }
-        else
-        {
+
+        } else {
                 index_node = list_index_as_node(list, index);
                 list_index_as_node(list, index - 1)->next = list_index_as_node(list, index + 1);
                 free_node(index_node, free_value);
@@ -139,12 +126,10 @@ void list_delete(struct List * list, void (*free_value)(void *))
 
 void log_list(enum e_LogLevel log_level, struct List * list, void (* node_print_function)(enum e_LogLevel, void *), char * separator)
 {
-        for (struct Node * node = list->start; node; node = node->next)
-        {
+        for (struct Node * node = list->start; node; node = node->next) {
                 node_print_function(log_level, node->value);
 
-                if (node->next)
-                {
+                if (node->next) {
                         logger(log_level, "%s", separator);
                 }
         }
