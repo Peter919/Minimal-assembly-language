@@ -14,7 +14,7 @@
 
 static char * create_string_clone(char * str)
 {
-        char * clone = malloc(strlen(str));
+        char * clone = malloc(strlen(str) + 1);
         strcpy(clone, str);
         return clone;
 }
