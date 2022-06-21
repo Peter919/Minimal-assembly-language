@@ -6,18 +6,33 @@
 #include <stdlib.h>
 #include <time.h>
 #include "log.h"
+#include "settings.h"
 #include "os.h"
+
+#if OPERATING_SYSTEM == OS_WINDOWS
+#include <windows.h>
+#define SLEEP(seconds) Sleep(seconds * 1000)
+#elif OPERATING_SYSTEM == OS_UNIX
+#include <unistd.h>
+#define SLEEP(seconds) sleep(seconds)
+#else
+#   error "Unknown system"
+#endif
 
 static void clear_screen(void)
 {
 #if OPERATING_SYSTEM == OS_WINDOWS
         system("cls");
-#else
+#elif OPERATING_SYSTEM == OS_UNIX
         system("clear");
+#else
+#error "Unknown operating system"
 #endif
 }
 
-void print_out(void * out, clock_t delay)
+#define b "BLINK"
+
+void print_out(void * out)
 {
         // little optimization so it doesn't print
         // out if there's nothing to print
@@ -28,11 +43,15 @@ void print_out(void * out, clock_t delay)
         }
 
         static clock_t last_output = 0;
-        if (clock() - last_output < delay) {
+        if (clock() - last_output < g_seconds_between_printings * CLOCKS_PER_SEC) {
                 return;
         }
 
         last_output = clock();
         clear_screen();
         logger(LOG_NONE, "%s", (char *) out);
+
+        if (g_pause_seconds_after_print != 0) {
+                SLEEP(g_pause_seconds_after_print);
+        }
 }
