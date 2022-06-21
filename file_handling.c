@@ -30,7 +30,7 @@ char * get_dirpath(char * fpath)
         char old_fname_begin = *fname_begin;
         *fname_begin = 0;
 
-        char * dirpath = malloc(strlen(fpath));
+        char * dirpath = malloc(strlen(fpath) + 1);
         strcpy(dirpath, fpath);
 
         *fname_begin = old_fname_begin;
