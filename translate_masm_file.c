@@ -3,6 +3,7 @@
 // the same masm project to create a mexe file
 
 #include <stdlib.h>
+#include "log.h"
 #include "list.h"
 #include "buffer.h"
 #include "masm_file.h"
@@ -55,6 +56,8 @@ static void translate_imports(char ** buffer_pos, struct List * imports)
 
 struct Buffer * translate_masm_file(struct MasmFile * masm_file)
 {
+        logger(LOG_INFO, "Translating \"%s\" ...\n", masm_file->fname);
+
         struct Buffer * buffer = malloc(sizeof(struct Buffer));
         buffer->size = length_of_translated_masm_file(masm_file);
         buffer->contents = malloc(buffer->size);
@@ -62,6 +65,8 @@ struct Buffer * translate_masm_file(struct MasmFile * masm_file)
         char * buffer_pos = buffer->contents;
         translate_imports(&buffer_pos, &masm_file->imports);
         translate_labels(&buffer_pos, &masm_file->lexed);
+
+        logger(LOG_INFO, "Done translating \"%s\".\n", masm_file->fname);
 
         return buffer;
 }
