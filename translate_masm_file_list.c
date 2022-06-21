@@ -70,6 +70,6 @@ struct Buffer translate_masm_file_list(struct List * masm_file_list)
         list_delete(&buffer_list, free_buffer);
         list_delete(masm_file_list, free_masm_file);
 
-        logger(LOG_SUCCESS, "Done translating a MASM file list to a buffer ...\n");
+        logger(LOG_SUCCESS, "Done translating a MASM file list to a buffer.\n");
         return buffer;
 }
