@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include "log.h"
 #include "list.h"
 #include "buffer.h"
 #include "translate_masm_file.h"
@@ -45,6 +46,7 @@ void combine_masm_file_buffers(struct List * buffer_list, struct Buffer * dest)
 
 struct Buffer translate_masm_file_list(struct List * masm_file_list)
 {
+        logger(LOG_INFO, "Translating a MASM file list to a buffer ...\n");
         struct List buffer_list = {0, 0, 0};
 
         struct Node * node = masm_file_list->start;
@@ -68,5 +70,6 @@ struct Buffer translate_masm_file_list(struct List * masm_file_list)
         list_delete(&buffer_list, free_buffer);
         list_delete(masm_file_list, free_masm_file);
 
+        logger(LOG_SUCCESS, "Done translating a MASM file list to a buffer ...\n");
         return buffer;
 }
