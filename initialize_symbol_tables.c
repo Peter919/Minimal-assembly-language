@@ -9,6 +9,8 @@
 #include "list.h"
 #include "mexe_file_part.h"
 
+#define MAX_INPUT_LENGTH 100000
+
 #define SIZEOF_IMPORT_FILE_INDEX 2
 #define SYMBOL_TABLE_LENGTH 16
 #define SYMBOL_TABLE_BYTE_SIZE (SYMBOL_TABLE_LENGTH * sizeof(byte_t *))
@@ -18,14 +20,25 @@
 #define OUT 3
 #define ONE 4
 
+static char * get_input(void)
+{
+        char * input_buffer = malloc(MAX_INPUT_LENGTH);
+        fgets(input_buffer, MAX_INPUT_LENGTH - 1, stdin);
+        // removes newline from end of input
+        input_buffer[strlen(input_buffer) - 1] = 0;
+
+        char * input = malloc(strlen(input_buffer) + 1);
+        strcpy(input, input_buffer);
+
+        free(input_buffer);
+        return input;
+}
+
 byte_t ** initialize_global_symbol_table(struct List * mexe_file_parts)
 {
         byte_t ** global_symbol_table = malloc(SYMBOL_TABLE_BYTE_SIZE);
-        char * input = malloc(100000);
-        gets(input);
-        global_symbol_table[IN] = malloc(strlen(input) + 1);
-        strcpy((char *) global_symbol_table[IN], input);
-        free(input);
+
+        global_symbol_table[IN] = (byte_t *) get_input();
 
         struct MexeFilePart * main_file;
         main_file = (struct MexeFilePart *) list_index(mexe_file_parts, 0);
