@@ -30,7 +30,7 @@ byte_t ** initialize_global_symbol_table(struct List * mexe_file_parts)
         struct MexeFilePart * main_file;
         main_file = (struct MexeFilePart *) list_index(mexe_file_parts, 0);
 
-        global_symbol_table[IPT] = main_file->labels[0] + sizeof(byte_t) + SIZEOF_IMPORT_FILE_INDEX;
+        global_symbol_table[IPT] = main_file->labels[0];
 
         global_symbol_table[OUT] = malloc(1);
         *global_symbol_table[OUT] = 0;
