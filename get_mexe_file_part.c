@@ -14,7 +14,7 @@
 #define SIZEOF_LABEL_LENGTH 2
 #define SYMBOL_TABLE_LENGTH 16
 
-#define FREE_IPT 0b01110001
+#define FREE_IPT 0b01100001
 
 unsigned long long read_int(char * mem_pos, unsigned int length)
 {
