@@ -83,8 +83,9 @@ static byte_t * get_label_contents(char ** label, unsigned int file_index)
 
         byte_t * label_contents = malloc(sizeof(byte_t) + SIZEOF_IMPORT_FILE_INDEX + label_length);
         byte_t * writing_pos = label_contents;
+        label_contents += 1 + SIZEOF_IMPORT_FILE_INDEX;
 
-        // free out is a command that will make the program crash immediately
+        // free ipt is a command that will make the program crash immediately
         // it's therefore used as a mark in labels to show that the symbol
         // table should change to the one with an index equal to the next
         // two bytes
