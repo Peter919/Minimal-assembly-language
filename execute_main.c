@@ -92,9 +92,6 @@ static void execute_command(byte_t ** global_symbol_table, byte_t ** symbol_tabl
                 byte_t instr_and_arg = *global_symbol_table[IPT];
                 ++global_symbol_table[IPT];
 
-                log_instruction(LOG_FATAL_ERROR, instr_and_arg);
-                newlines(LOG_FATAL_ERROR, 1);
-
                 byte_t instr = (instr_and_arg & 0b11100000) >> 5;
 
                 byte_t ** local_symbol_table;
