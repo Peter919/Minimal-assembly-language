@@ -104,20 +104,6 @@ char * file_ext(char * fname)
         return ext;
 }
 
-static unsigned int chars_in_string(char * str, char ch, unsigned int length)
-{
-        unsigned int count = 0;
-
-        char * curr_ch = str;
-        for (int i = 0; i < length; i++) {
-                if (*curr_ch == ch) {
-                        ++count;
-                }
-                ++curr_ch;
-        }
-        return count;
-}
-
 static long file_length(FILE * fp)
 {
         fseek(fp, 0, SEEK_END);
@@ -141,18 +127,22 @@ char * file_to_string(char * fname)
         long flength = file_length(fp);
 
         char * fbuffer = malloc(flength + 1);
+        // on some operating systems, newline characters take two bytes
+        // of space, so flength is larger than it should be. therefore,
+        // it's hard to know where exactly to null terminate fbuffer,
+        // so it's instead initialized to 0
+        memset(fbuffer, 0, flength);
         fread(fbuffer, flength, 1, fp);
 
-        // in windows files, there's a carriage return before newlines, but fread removes them for some reason
-        // flength will therefore be too long as it counts bytes in the original file, not fbuffer
-        if (OPERATING_SYSTEM == OS_WINDOWS) {
-                flength -= chars_in_string(fbuffer, '\n', flength);
-        }
-        fbuffer[flength] = 0;
-
         fclose(fp);
+
+        // as explained, flength might be too long so fbuffer is larger than
+        // what's needed. these two lines make sure no extra space is used
+        char * fstring = malloc(strlen(fbuffer) + 1);
+        strcpy(fstring, fbuffer);
+
         logger(LOG_SUCCESS, "Done moving \"%s\" to a string.\n", fname);
-        return fbuffer;
+        return fstring;
 }
 
 struct Buffer file_to_buffer(char * fname)
