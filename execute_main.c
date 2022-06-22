@@ -23,7 +23,8 @@
 #define OUT 3
 #define ONE 4
 
-#define FREE_IPT 0b01110001
+#define FREE_IPT 0b01100001
+#define SET_IPT 0b00100001
 
 static inline void _get(byte_t ** vpt, byte_t ** arg)
 {
@@ -111,7 +112,7 @@ static void execute_command(byte_t ** global_symbol_table, byte_t ** symbol_tabl
                 // 4 levels of indentation is not good, but
                 // i'd have to call a function and dereference two pointers
                 // to avoid it, so i sacrifice the cleanness for some speed
-                if (instr != SET || (instr_and_arg & 0b00011111) != IPT) {
+                if (instr_and_arg != SET_IPT) {
                         goto EXECUTE_INSTRUCTION;
                 }
 
