@@ -91,6 +91,9 @@ static void execute_command(byte_t ** global_symbol_table, byte_t ** symbol_tabl
                 byte_t instr_and_arg = *global_symbol_table[IPT];
                 ++global_symbol_table[IPT];
 
+                log_instruction(LOG_FATAL_ERROR, instr_and_arg);
+                newlines(LOG_FATAL_ERROR, 1);
+
                 byte_t instr = (instr_and_arg & 0b11100000) >> 5;
 
                 byte_t ** local_symbol_table;
@@ -108,20 +111,29 @@ static void execute_command(byte_t ** global_symbol_table, byte_t ** symbol_tabl
                 // 4 levels of indentation is not good, but
                 // i'd have to call a function and dereference two pointers
                 // to avoid it, so i sacrifice the cleanness for some speed
-                if (instr == SET && (instr_and_arg & 0b00011111) == IPT) {
-                        if (**vpt == FREE_IPT) {
-                                symbol_table_index = 0;
-                                symbol_table_index += (*vpt)[1] * 0x100;
-                                symbol_table_index += (*vpt)[2];
-                                global_symbol_table[IPT] = *vpt + 3;
-                                continue;
-                        }
+                if (instr != SET || (instr_and_arg & 0b00011111) != IPT) {
+                        goto EXECUTE_INSTRUCTION;
                 }
+
+                // the first byte in the label is free ipt and the
+                // two next bytes stores the index of the symbol table
+                // that the label uses
+                byte_t * label_beginning = *vpt - 2;
+                while (*label_beginning != FREE_IPT) {
+                        --label_beginning;
+                }
+
+                symbol_table_index = 0;
+                symbol_table_index += label_beginning[1] * 0x100;
+                symbol_table_index += label_beginning[2];
+                global_symbol_table[IPT] = *vpt;
+                continue;
 
                 // should probably use function pointers,
                 // but then there's a chance that the compiler
                 // will ignore the fact that the functions are
                 // inline, and the program will run slightly slower
+        EXECUTE_INSTRUCTION:
                 switch (instr) {
                 case GET:
                         _get(vpt, arg);
