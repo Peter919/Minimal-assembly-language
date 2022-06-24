@@ -131,7 +131,7 @@ char * file_to_string(char * fname)
         // hold. but fread returns the amount of bytes read, so we can
         // get the correct flength no matter what
         char * fbuffer = malloc(flength + 1);
-        long true_flength = fread(fbuffer, flength, 1, fp);
+        long true_flength = fread(fbuffer, 1, flength, fp);
         fbuffer[true_flength] = 0;
 
         fclose(fp);
@@ -158,7 +158,7 @@ struct Buffer file_to_buffer(char * fname)
         struct Buffer buffer;
         // as explained in file_to_string, file_length may be wrong
         buffer.contents = malloc(file_length(fp));
-        buffer.size = fread(buffer.contents, file_length(fp), 1, fp);
+        buffer.size = fread(buffer.contents, 1, file_length(fp), fp);
 
         // don't malloc more than what's needed!
         char * old_contents = buffer.contents;
