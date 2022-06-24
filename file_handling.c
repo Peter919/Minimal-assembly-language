@@ -126,13 +126,13 @@ char * file_to_string(char * fname)
 
         long flength = file_length(fp);
 
+        // on some operating systems, newlines takes 2 bytes of space
+        // and it's hard to figure out what value flength really should
+        // hold. but fread returns the amount of bytes read, so we can
+        // get the correct flength no matter what
         char * fbuffer = malloc(flength + 1);
-        // on some operating systems, newline characters take two bytes
-        // of space, so flength is larger than it should be. therefore,
-        // it's hard to know where exactly to null terminate fbuffer,
-        // so it's instead initialized to 0
-        memset(fbuffer, 0, flength);
-        fread(fbuffer, flength, 1, fp);
+        long true_flength = fread(fbuffer, flength, 1, fp);
+        fbuffer[true_flength] = 0;
 
         fclose(fp);
 
@@ -156,10 +156,15 @@ struct Buffer file_to_buffer(char * fname)
         }
 
         struct Buffer buffer;
-        buffer.size = file_length(fp);
+        // as explained in file_to_string, file_length may be wrong
+        buffer.contents = malloc(file_length(fp));
+        buffer.size = fread(buffer.contents, file_length(fp), 1, fp);
 
+        // don't malloc more than what's needed!
+        char * old_contents = buffer.contents;
         buffer.contents = malloc(buffer.size);
-        fread(buffer.contents, buffer.size, 1, fp);
+        memcpy(buffer.contents, old_contents, buffer.size);
+        free(old_contents);
 
         logger(LOG_SUCCESS, "Done moving the contents of \"%s\" to a buffer.\n", fname);
         return buffer;
