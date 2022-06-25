@@ -76,8 +76,14 @@ struct List files_in_dir(char * dirpath)
 
         while ((dir = readdir(d)) != 0) {
                 curr_fname = malloc(strlen(dir->d_name) + 1);
-                strcpy(curr_fname, dir->d_name);
-                list_append(&fnamelist, (void *) curr_fname);
+
+                if (strchr(curr_fname, '.')) {
+                        strcpy(curr_fname, dir->d_name);
+                        list_append(&fnamelist, (void *) curr_fname);
+                } else {
+                        struct List subdir_files = files_in_dir(curr_fname);
+                        list_combine(&fnamelist, &subdir_files);
+                }
         }
         closedir(d);
 
