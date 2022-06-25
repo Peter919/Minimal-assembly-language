@@ -117,6 +117,20 @@ char list_pop(struct List * list, unsigned int index, void (* free_value)(void *
         return 1;
 }
 
+void list_combine(struct List * dest, struct List * src)
+{
+        if (src->length == 0) {
+                *dest = *src;
+                return;
+        }
+        if (dest->length == 0) {
+                return;
+        }
+
+        dest->end->next = src->start;
+        dest->end = src->end;
+}
+
 void list_delete(struct List * list, void (*free_value)(void *))
 {
         while (list->length > 0) {
