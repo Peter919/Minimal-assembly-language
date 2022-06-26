@@ -20,7 +20,7 @@
 #   error "Unknown system"
 #endif
 
-static void clear_screen(void)
+void clear_screen(void)
 {
 #if OPERATING_SYSTEM == OS_WINDOWS
         system("cls");
