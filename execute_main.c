@@ -163,5 +163,7 @@ static void execute_command(byte_t ** global_symbol_table, byte_t ** symbol_tabl
 
 void execute_main(byte_t ** global_symbol_table, byte_t ** other_symbol_tables)
 {
+        // just to clear the screen before running
+        print_out(global_symbol_table[OUT]);
         execute_command(global_symbol_table, other_symbol_tables, 0);
 }
