@@ -175,7 +175,7 @@ char write_buffer_to_file(struct Buffer * buffer, char * fpath)
 {
         logger(LOG_INFO, "Moving the contents of a buffer to \"%s\".\n", fpath);
 
-        FILE * fp = fopen(fpath, "w");
+        FILE * fp = fopen(fpath, "wb");
         if (!fp) {
                 logger(LOG_ERROR, "Couldn't open \"%s\" for writing.\n", fpath);
                 return 0;
