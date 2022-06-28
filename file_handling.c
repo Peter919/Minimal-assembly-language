@@ -149,7 +149,7 @@ struct Buffer file_to_buffer(char * fname)
 {
         logger(LOG_INFO, "Moving the contents of \"%s\" to a buffer ...\n", fname);
 
-        FILE * fp = fopen(fname, "r");
+        FILE * fp = fopen(fname, "rb");
         if (!fp) {
                 logger(LOG_ERROR, "Couldn't open \"%s\". Are you sure the file exists?\n", fname);
                 return (struct Buffer) {0, -1};
@@ -166,6 +166,7 @@ struct Buffer file_to_buffer(char * fname)
         memcpy(buffer.contents, old_contents, buffer.size);
         free(old_contents);
 
+        fclose(fp);
         logger(LOG_SUCCESS, "Done moving the contents of \"%s\" to a buffer.\n", fname);
         return buffer;
 }
